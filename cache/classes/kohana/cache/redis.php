@@ -94,13 +94,15 @@ class Kohana_Cache_Redis extends Cache implements Cache_Arithmetic {
      * @param   integer  lifetime in seconds, maximum value 2592000
      * @return  boolean
      */
-    public function set($id, $data, $lifetime = 3600) {
+    public function set($id, $data, $lifetime = 3600)
+    {
 
         // Set the data to redis
         return $this->_redis->setex($this->_sanitize_id($id), $lifetime, $data);
     }
 
-    public function ttl($id) {
+    public function ttl($id)
+    {
         return $this->_redis->ttl($this->_sanitize_id($id));
     }
 
